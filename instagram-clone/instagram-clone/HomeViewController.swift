@@ -12,7 +12,6 @@ import MobileCoreServices
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let imagePicker = UIImagePickerController()
-    var newPicture : Bool?
     
     @IBOutlet weak var imageView: UIImageView!
 
@@ -26,7 +25,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             imagePicker.mediaTypes = [kUTTypeImage as String]
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
-            newPicture = true
         }
     }
     
