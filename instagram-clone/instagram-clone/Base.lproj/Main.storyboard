@@ -31,7 +31,7 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghO-2b-Jkn">
-                                <rect key="frame" x="46.5" y="45" width="281" height="30"/>
+                                <rect key="frame" x="46.5" y="-146.5" width="281" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                 <state key="normal" title="POST">
@@ -62,13 +62,14 @@
                             <constraint firstItem="Hxx-iw-aaX" firstAttribute="top" secondItem="n9G-J3-8Rv" secondAttribute="bottom" constant="200" id="n96-70-SFy"/>
                             <constraint firstItem="ghO-2b-Jkn" firstAttribute="width" secondItem="n9G-J3-8Rv" secondAttribute="width" id="qjU-Az-HyD"/>
                             <constraint firstItem="n9G-J3-8Rv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xTY-zW-Djy"/>
-                            <constraint firstItem="n9G-J3-8Rv" firstAttribute="top" secondItem="ghO-2b-Jkn" secondAttribute="bottom" constant="8" id="zi3-YN-zKR"/>
+                            <constraint firstItem="n9G-J3-8Rv" firstAttribute="top" secondItem="ghO-2b-Jkn" secondAttribute="bottom" constant="200" id="zi3-YN-zKR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="qfI-5V-hsl"/>
                     <connections>
                         <outlet property="filterButtonTopConstraint" destination="n96-70-SFy" id="iWA-Lh-OKD"/>
                         <outlet property="imageView" destination="n9G-J3-8Rv" id="E1o-1s-eoL"/>
+                        <outlet property="postButtonBottomConstraint" destination="zi3-YN-zKR" id="niQ-x9-KZ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -86,6 +87,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="dHx-fI-hGg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="eAi-u2-Y4Z">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

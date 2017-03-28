@@ -15,7 +15,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var filterButtonTopConstraint: NSLayoutConstraint!
-
+    @IBOutlet weak var postButtonBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +33,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidAppear(_ animated: Bool) {
         
         filterButtonTopConstraint.constant = 8
+        postButtonBottomConstraint.constant = 8
         
         UIView.animate(withDuration: 0.4) {
             self.view.layoutIfNeeded()
