@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dHx-fI-hGg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="instagram_clone" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,16 +30,44 @@
                                     <outletCollection property="gestureRecognizers" destination="1bO-Td-Ri2" appends="YES" id="lh5-Mx-pjA"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghO-2b-Jkn">
+                                <rect key="frame" x="46.5" y="45" width="281" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="POST">
+                                    <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dXh-a9-Da7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxx-iw-aaX">
+                                <rect key="frame" x="46.5" y="783.5" width="281" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="FILTER"/>
+                                <connections>
+                                    <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tCy-Bk-x3y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Hxx-iw-aaX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3vS-UD-edx"/>
                             <constraint firstItem="n9G-J3-8Rv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="805-cB-cMy"/>
+                            <constraint firstItem="Hxx-iw-aaX" firstAttribute="width" secondItem="n9G-J3-8Rv" secondAttribute="width" id="HVD-zT-V5C"/>
                             <constraint firstItem="n9G-J3-8Rv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="JPw-5Y-Ld5"/>
+                            <constraint firstItem="ghO-2b-Jkn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SqH-87-P2b"/>
                             <constraint firstItem="n9G-J3-8Rv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eUt-PN-Kbz"/>
+                            <constraint firstItem="Hxx-iw-aaX" firstAttribute="top" secondItem="n9G-J3-8Rv" secondAttribute="bottom" constant="200" id="n96-70-SFy"/>
+                            <constraint firstItem="ghO-2b-Jkn" firstAttribute="width" secondItem="n9G-J3-8Rv" secondAttribute="width" id="qjU-Az-HyD"/>
                             <constraint firstItem="n9G-J3-8Rv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xTY-zW-Djy"/>
+                            <constraint firstItem="n9G-J3-8Rv" firstAttribute="top" secondItem="ghO-2b-Jkn" secondAttribute="bottom" constant="8" id="zi3-YN-zKR"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="qfI-5V-hsl"/>
                     <connections>
+                        <outlet property="filterButtonTopConstraint" destination="n96-70-SFy" id="iWA-Lh-OKD"/>
                         <outlet property="imageView" destination="n9G-J3-8Rv" id="E1o-1s-eoL"/>
                     </connections>
                 </viewController>
@@ -50,6 +78,24 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="972" y="37.331334332833585"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="aC9-qO-5g0">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="dHx-fI-hGg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="eAi-u2-Y4Z">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="86r-wG-Z5g"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rDo-Qh-d1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
     </scenes>
     <resources>
