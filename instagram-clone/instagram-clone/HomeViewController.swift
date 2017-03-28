@@ -119,8 +119,10 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         
         
-        let resetAction = UIAlertAction(title: "Reset Image", style: .destructive) { (action) in
-            self.imageView.image = Filters.originalImage
+        let undoAction = UIAlertAction(title: "Undo Filter", style: .destructive) { (action) in
+                Filters.history.popLast()
+                self.imageView.image = Filters.history.last
+
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -130,7 +132,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         alertController.addAction(sepiaAction)
         alertController.addAction(comicAction)
         alertController.addAction(blurAction)
-        alertController.addAction(resetAction)
+        if Filters.history.count > 1 {
+            alertController.addAction(undoAction)
+        }
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)

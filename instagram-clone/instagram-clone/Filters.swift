@@ -29,7 +29,7 @@ class Filters {
     
     static var originalImage = #imageLiteral(resourceName: "Robot Unicorn")
     
-    static var history = [UIImage]()
+    static var history = [originalImage]
     
     class func filter(name: FilterName, image: UIImage, completion: @escaping FilterCompletion) {
         OperationQueue().addOperation {
@@ -52,7 +52,8 @@ class Filters {
             if let cgImage = ciContext.createCGImage(outputImage, from: outputImage.extent) {
                 
                 let finalImage = UIImage(cgImage: cgImage)
-                
+                history.append(finalImage)
+                print(history)
                 OperationQueue.main.addOperation {
                     completion(finalImage)
                 }
