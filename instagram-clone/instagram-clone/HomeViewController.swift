@@ -27,12 +27,17 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
         }
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
         filterButtonTopConstraint.constant = 8
         
         UIView.animate(withDuration: 0.4) {
             self.view.layoutIfNeeded()
         }
+        
     }
     
     func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
@@ -94,6 +99,25 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             })
         }
         
+        let sepiaAction = UIAlertAction(title: "Sepia Tone", style: .default) { (action) in
+            Filters.filter(name: .sepia, image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
+        
+        let comicAction = UIAlertAction(title: "Comic", style: .default) { (action) in
+            Filters.filter(name: .comic, image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
+        
+        let blurAction = UIAlertAction(title: "Blur", style: .default) { (action) in
+            Filters.filter(name: .blur, image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
+        
+        
         let resetAction = UIAlertAction(title: "Reset Image", style: .destructive) { (action) in
             self.imageView.image = Filters.originalImage 
         }
@@ -102,6 +126,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         alertController.addAction(blackAndWhiteAction)
         alertController.addAction(vintageAction)
+        alertController.addAction(sepiaAction)
+        alertController.addAction(comicAction)
+        alertController.addAction(blurAction)
         alertController.addAction(resetAction)
         alertController.addAction(cancelAction)
         
