@@ -17,11 +17,19 @@ enum FilterName : String {
     
 }
 
+enum FilterErrors : Error {
+    case ciFilterError
+    case eaglContextError
+    case outputError
+}
+
 typealias FilterCompletion = (UIImage?) -> ()
 
 class Filters {
     
-    static var originalImage = UIImage()
+    static var originalImage = #imageLiteral(resourceName: "Robot Unicorn")
+    
+    static var history = [UIImage]()
     
     class func filter(name: FilterName, image: UIImage, completion: @escaping FilterCompletion) {
         OperationQueue().addOperation {

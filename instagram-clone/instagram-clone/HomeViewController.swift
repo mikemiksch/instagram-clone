@@ -120,7 +120,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         
         let resetAction = UIAlertAction(title: "Reset Image", style: .destructive) { (action) in
-            self.imageView.image = Filters.originalImage 
+            self.imageView.image = Filters.originalImage
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
