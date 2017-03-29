@@ -55,6 +55,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.imageView.image = chosenImage
             Filters.originalImage = chosenImage
+            Filters.history = [chosenImage]
         }
         dismiss(animated: true, completion: nil)
     }
@@ -120,10 +121,21 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         
         let undoAction = UIAlertAction(title: "Undo Filter", style: .destructive) { (action) in
-                Filters.history.popLast()
-                self.imageView.image = Filters.history.last
+            Filters.history.popLast()
+            self.imageView.image = Filters.history.last
 
         }
+        
+//        let undoAllAction = UIAlertAction(title: "Undo All", style: .destructive) { (action) in
+//            print("Filters.originalImage: \(Filters.originalImage)")
+//            print("Filters.history[0]: \(Filters.history[0])")
+//            Filters.originalImage = Filters.history[0]
+//            print("Filters.history before removeAll: \(Filters.history)")
+//            Filters.history.removeAll()
+//            print("Filters.history after removeAll: \(Filters.history)")
+//            Filters.history = [Filters.originalImage]
+//            print("Filters.originalImage: \(Filters.originalImage)")
+//        }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
@@ -135,6 +147,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if Filters.history.count > 1 {
             alertController.addAction(undoAction)
         }
+//        if Filters.history.count > 2 {
+//            alertController.addAction(undoAllAction)
+//        }
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
