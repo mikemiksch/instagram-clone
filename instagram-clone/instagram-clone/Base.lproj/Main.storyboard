@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Post-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="instagram_clone" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                             <constraint firstItem="n9G-J3-8Rv" firstAttribute="top" secondItem="ghO-2b-Jkn" secondAttribute="bottom" constant="200" id="zi3-YN-zKR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="qfI-5V-hsl"/>
+                    <tabBarItem key="tabBarItem" title="Post" id="qfI-5V-hsl"/>
                     <connections>
                         <outlet property="filterButtonTopConstraint" destination="n96-70-SFy" id="iWA-Lh-OKD"/>
                         <outlet property="imageView" destination="n9G-J3-8Rv" id="E1o-1s-eoL"/>
@@ -79,7 +79,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="972" y="37.331334332833585"/>
+            <point key="canvasLocation" x="938" y="-439"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aC9-qO-5g0">
@@ -93,11 +93,80 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="86r-wG-Z5g"/>
+                        <segue destination="NYg-bH-8ma" kind="relationship" relationship="viewControllers" id="BOZ-Vy-Ma5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDo-Qh-d1K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+        </scene>
+        <!--Gallery-->
+        <scene sceneID="ynd-xn-chE">
+            <objects>
+                <viewController id="NYg-bH-8ma" customClass="GalleryViewController" customModule="instagram_clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cfA-ej-7CY"/>
+                        <viewControllerLayoutGuide type="bottom" id="VRH-aB-LaN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a19-2E-xH4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CiW-Qh-KnB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SPW-Ns-TPw">
+                                    <size key="itemSize" width="296" height="270"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="XiU-PM-PZ1" customClass="GalleryCell" customModule="instagram_clone" customModuleProvider="target">
+                                        <rect key="frame" x="39.5" y="0.0" width="296" height="270"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="296" height="270"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qfu-Lb-mJO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="270"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Qfu-Lb-mJO" firstAttribute="top" secondItem="XiU-PM-PZ1" secondAttribute="top" id="2nF-VV-P5l"/>
+                                            <constraint firstItem="Qfu-Lb-mJO" firstAttribute="top" secondItem="XiU-PM-PZ1" secondAttribute="top" id="DHW-LH-okF"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qfu-Lb-mJO" secondAttribute="trailing" id="Kvy-yh-sd9"/>
+                                            <constraint firstAttribute="bottom" secondItem="Qfu-Lb-mJO" secondAttribute="bottom" id="T6c-O0-5e6"/>
+                                            <constraint firstItem="Qfu-Lb-mJO" firstAttribute="leading" secondItem="XiU-PM-PZ1" secondAttribute="leading" id="gYJ-33-wEE"/>
+                                            <constraint firstItem="Qfu-Lb-mJO" firstAttribute="leading" secondItem="XiU-PM-PZ1" secondAttribute="leading" id="sel-vM-BnU"/>
+                                            <constraint firstAttribute="bottom" secondItem="Qfu-Lb-mJO" secondAttribute="bottom" id="tm6-P5-vsq"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qfu-Lb-mJO" secondAttribute="trailing" id="z7G-uG-MYy"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="Qfu-Lb-mJO" id="FBh-lV-FPI"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CiW-Qh-KnB" firstAttribute="leading" secondItem="a19-2E-xH4" secondAttribute="leading" id="2Jt-ub-hkV"/>
+                            <constraint firstAttribute="trailing" secondItem="CiW-Qh-KnB" secondAttribute="trailing" id="BBe-cO-tDd"/>
+                            <constraint firstItem="CiW-Qh-KnB" firstAttribute="top" secondItem="cfA-ej-7CY" secondAttribute="bottom" id="eBk-q0-ddV"/>
+                            <constraint firstItem="VRH-aB-LaN" firstAttribute="top" secondItem="CiW-Qh-KnB" secondAttribute="bottom" id="gUP-Zz-vhd"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Gallery" id="wYa-8t-I4L"/>
+                    <connections>
+                        <outlet property="collectionView" destination="CiW-Qh-KnB" id="SJ4-oI-VpO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDq-df-zt0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="936.79999999999995" y="277.51124437781112"/>
         </scene>
     </scenes>
     <resources>

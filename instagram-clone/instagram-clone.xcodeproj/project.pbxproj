@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8319BA9E1E898041005016A2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8319BA9D1E898041005016A2 /* CloudKit.framework */; };
+		838648C51E8C236D002FB229 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838648C41E8C236D002FB229 /* GalleryViewController.swift */; };
+		838648C71E8C2770002FB229 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838648C61E8C2770002FB229 /* GalleryCell.swift */; };
+		838648C91E8C3799002FB229 /* GalleryCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838648C81E8C3799002FB229 /* GalleryCollectionViewLayout.swift */; };
 		839D80851E8AD0E80003E635 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D80841E8AD0E80003E635 /* Post.swift */; };
 		839D80871E8AD3630003E635 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D80861E8AD3630003E635 /* UIExtensions.swift */; };
 		839D80891E8AE7150003E635 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D80881E8AE7150003E635 /* Filters.swift */; };
@@ -22,6 +25,9 @@
 /* Begin PBXFileReference section */
 		8319BA9B1E898023005016A2 /* instagram-clone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "instagram-clone.entitlements"; sourceTree = "<group>"; };
 		8319BA9D1E898041005016A2 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		838648C41E8C236D002FB229 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		838648C61E8C2770002FB229 /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
+		838648C81E8C3799002FB229 /* GalleryCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewLayout.swift; sourceTree = "<group>"; };
 		839D80841E8AD0E80003E635 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		839D80861E8AD3630003E635 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		839D80881E8AE7150003E635 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
@@ -68,6 +74,7 @@
 		83A04FFC1E89820000D42A32 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				838648C61E8C2770002FB229 /* GalleryCell.swift */,
 				83E61BEE1E8970040099A8D3 /* Main.storyboard */,
 				83E61BF31E8970040099A8D3 /* LaunchScreen.storyboard */,
 			);
@@ -77,9 +84,11 @@
 		83A04FFD1E89820900D42A32 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				838648C81E8C3799002FB229 /* GalleryCollectionViewLayout.swift */,
 				83E61BEA1E8970040099A8D3 /* AppDelegate.swift */,
 				83A04FFF1E8984DF00D42A32 /* CloudKit.swift */,
 				83A050011E898D3C00D42A32 /* HomeViewController.swift */,
+				838648C41E8C236D002FB229 /* GalleryViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -204,8 +213,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				83A050001E8984DF00D42A32 /* CloudKit.swift in Sources */,
+				838648C51E8C236D002FB229 /* GalleryViewController.swift in Sources */,
 				83E61BEB1E8970040099A8D3 /* AppDelegate.swift in Sources */,
+				838648C91E8C3799002FB229 /* GalleryCollectionViewLayout.swift in Sources */,
 				83A050021E898D3C00D42A32 /* HomeViewController.swift in Sources */,
+				838648C71E8C2770002FB229 /* GalleryCell.swift in Sources */,
 				839D80891E8AE7150003E635 /* Filters.swift in Sources */,
 				839D80871E8AD3630003E635 /* UIExtensions.swift in Sources */,
 				839D80851E8AD0E80003E635 /* Post.swift in Sources */,
