@@ -68,8 +68,8 @@ class CloudKit {
                         let path = asset.fileURL.path
                         
                         if let image = UIImage(contentsOfFile: path) {
-                            
-                            let newPost = Post(image: image)
+                            let date = record["date"] as! Date
+                            let newPost = Post(image: image, date: date)
                             posts.append(newPost)
                             
                         }

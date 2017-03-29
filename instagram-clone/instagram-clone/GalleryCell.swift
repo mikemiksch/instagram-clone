@@ -16,7 +16,8 @@ class GalleryCell: UICollectionViewCell {
     var post : Post! {
         didSet  {
             self.imageView.image = post.image
-            self.dateLabel.text = post.date
+            self.dateLabel.text = stringFromDate(post.date)
+            print(post.date)
         }
     }
     
@@ -24,6 +25,12 @@ class GalleryCell: UICollectionViewCell {
         super.prepareForReuse()
         self.dateLabel.text = nil
         self.imageView.image = nil 
+    }
+    
+    func stringFromDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        return dateFormatter.string(from: date)
     }
     
 }
