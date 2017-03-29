@@ -83,36 +83,23 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
         
-        let blackAndWhiteAction = UIAlertAction(title: "Black and White", style: .default) { (action) in
-            Filters.filter(name: .blackAndWhite, image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
+        func filterAction(title: String, name: FilterName) {
+            let action = UIAlertAction(title: title, style: .default) { (action) in
+                Filters.filter(name: name, image: image, completion: { (filteredImage) in
+                    self.imageView.image = filteredImage
+                })
+            }
+            alertController.addAction(action)
         }
         
-        let vintageAction = UIAlertAction(title: "Vintage", style: .default) { (action) in
-            Filters.filter(name: .vintage, image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
-        let sepiaAction = UIAlertAction(title: "Sepia Tone", style: .default) { (action) in
-            Filters.filter(name: .sepia, image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
-        let comicAction = UIAlertAction(title: "Comic", style: .default) { (action) in
-            Filters.filter(name: .comic, image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
-        let blurAction = UIAlertAction(title: "Blur", style: .default) { (action) in
-            Filters.filter(name: .blur, image: image, completion: { (filteredImage) in
-                self.imageView.image = filteredImage
-            })
-        }
-        
+        let blackAndWhiteAction = filterAction(title: "Black and White", name: .blackAndWhite)
+        let vitnageAction = filterAction(title: "Vintage", name: .vintage)
+        let sepiaAction = filterAction(title: "Sepia", name: .sepia)
+        let comicAction = filterAction(title: "Comic", name: .comic)
+        let blurAction = filterAction(title: "Blur", name: .blur)
+        let posterizeAction = filterAction(title: "Posterize", name: .posterize)
+        let invertAction = filterAction(title: "Invert", name: .invert)
+        let fadeAction = filterAction(title: "Fade", name: .fade)
         
         let undoAction = UIAlertAction(title: "Undo Filter", style: .destructive) { (action) in
             Filters.history.popLast()
@@ -120,30 +107,12 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
         }
         
-//        let undoAllAction = UIAlertAction(title: "Undo All", style: .destructive) { (action) in
-//            print("Filters.originalImage: \(Filters.originalImage)")
-//            print("Filters.history[0]: \(Filters.history[0])")
-//            Filters.originalImage = Filters.history[0]
-//            print("Filters.history before removeAll: \(Filters.history)")
-//            Filters.history.removeAll()
-//            print("Filters.history after removeAll: \(Filters.history)")
-//            Filters.history = [Filters.originalImage]
-//            print("Filters.originalImage: \(Filters.originalImage)")
-//        }
-        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alertController.addAction(blackAndWhiteAction)
-        alertController.addAction(vintageAction)
-        alertController.addAction(sepiaAction)
-        alertController.addAction(comicAction)
-        alertController.addAction(blurAction)
         if Filters.history.count > 1 {
             alertController.addAction(undoAction)
         }
-//        if Filters.history.count > 2 {
-//            alertController.addAction(undoAllAction)
-//        }
+
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
