@@ -14,7 +14,7 @@ class Post  {
     let date : String
     init(image: UIImage) {
         self.image = image
-        let currentDate = Date(timeIntervalSinceReferenceDate: 118800)
+        let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none

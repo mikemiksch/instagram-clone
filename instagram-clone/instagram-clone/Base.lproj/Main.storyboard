@@ -133,7 +133,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qfu-Lb-mJO">
                                                     <rect key="frame" x="0.0" y="0.0" width="296" height="270"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rq3-aK-I3j">
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rq3-aK-I3j">
                                                     <rect key="frame" x="20" y="229" width="256" height="21"/>
                                                     <color key="backgroundColor" red="0.079401634633541107" green="0.031358487904071808" blue="0.01842280849814415" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -144,7 +144,6 @@
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="bottomMargin" secondItem="rq3-aK-I3j" secondAttribute="bottom" constant="12" id="0er-7E-9nL"/>
-                                            <constraint firstItem="rq3-aK-I3j" firstAttribute="top" secondItem="XiU-PM-PZ1" secondAttribute="topMargin" constant="221" id="166-gf-K6V"/>
                                             <constraint firstItem="Qfu-Lb-mJO" firstAttribute="top" secondItem="XiU-PM-PZ1" secondAttribute="top" id="2nF-VV-P5l"/>
                                             <constraint firstItem="rq3-aK-I3j" firstAttribute="centerX" secondItem="XiU-PM-PZ1" secondAttribute="centerX" id="6G1-my-k9d"/>
                                             <constraint firstItem="Qfu-Lb-mJO" firstAttribute="top" secondItem="XiU-PM-PZ1" secondAttribute="top" id="DHW-LH-okF"/>
@@ -152,7 +151,6 @@
                                             <constraint firstAttribute="bottom" secondItem="Qfu-Lb-mJO" secondAttribute="bottom" id="T6c-O0-5e6"/>
                                             <constraint firstItem="rq3-aK-I3j" firstAttribute="leading" secondItem="XiU-PM-PZ1" secondAttribute="leadingMargin" constant="12" id="fpt-KI-Woz"/>
                                             <constraint firstItem="Qfu-Lb-mJO" firstAttribute="leading" secondItem="XiU-PM-PZ1" secondAttribute="leading" id="gYJ-33-wEE"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="rq3-aK-I3j" secondAttribute="bottom" constant="12" id="hoa-hx-7Um"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="rq3-aK-I3j" secondAttribute="trailing" constant="12" id="nuW-KU-5KX"/>
                                             <constraint firstItem="Qfu-Lb-mJO" firstAttribute="leading" secondItem="XiU-PM-PZ1" secondAttribute="leading" id="sel-vM-BnU"/>
                                             <constraint firstAttribute="bottom" secondItem="Qfu-Lb-mJO" secondAttribute="bottom" id="tm6-P5-vsq"/>
