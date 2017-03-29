@@ -34,7 +34,6 @@ class CloudKit {
                     }
                     
                     if let record = record {
-                        print(record)
                         completion(true)
                     } else {
                         completion(false)

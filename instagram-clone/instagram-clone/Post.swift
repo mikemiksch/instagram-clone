@@ -11,8 +11,14 @@ import CloudKit
 
 class Post  {
     let image : UIImage
+    let date : String
     init(image: UIImage) {
         self.image = image
+        let currentDate = Date(timeIntervalSinceReferenceDate: 118800)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        self.date = dateFormatter.string(from: currentDate)
     }
 }
 
@@ -32,6 +38,7 @@ extension Post {
             
             let record = CKRecord(recordType: "Post")
             record.setValue(asset, forKey: "image")
+            record.setValue(asset, forKey: "date")
             
             return record
             

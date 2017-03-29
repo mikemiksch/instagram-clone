@@ -47,7 +47,6 @@ extension GalleryViewController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCell.identifier, for: indexPath) as! GalleryCell
         
         cell.post = self.allPosts[indexPath.row]
-
         return cell
     }
     
