@@ -19,14 +19,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-            imagePicker.mediaTypes = [kUTTypeImage as String]
-            imagePicker.allowsEditing = true
-            self.present(imagePicker, animated: true, completion: nil)
-        }
 
     }
     
@@ -44,6 +36,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
         self.imagePicker.delegate = self
         self.imagePicker.sourceType = sourceType
+        self.imagePicker.allowsEditing = true
         self.present(self.imagePicker, animated: true, completion: nil)
     }
     
