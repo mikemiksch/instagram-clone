@@ -111,6 +111,47 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+//    
+//    guard let image = self.imageView.image else { return }
+//    
+//    let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
+//    
+//    func filterAction(title: String, name: FilterName) {
+//        let action = UIAlertAction(title: title, style: .default) { (action) in
+//            Filters.filter(name: name, image: image, completion: { (filteredImage) in
+//                self.imageView.image = filteredImage
+//            })
+//        }
+//        alertController.addAction(action)
+//    }
+//    
+//    let blackAndWhiteAction = filterAction(title: "Black and White", name: .blackAndWhite)
+//    let vitnageAction = filterAction(title: "Vintage", name: .vintage)
+//    let sepiaAction = filterAction(title: "Sepia", name: .sepia)
+//    let comicAction = filterAction(title: "Comic", name: .comic)
+//    let blurAction = filterAction(title: "Blur", name: .blur)
+//    let posterizeAction = filterAction(title: "Posterize", name: .posterize)
+//    let invertAction = filterAction(title: "Invert", name: .invert)
+//    let fadeAction = filterAction(title: "Fade", name: .fade)
+//    
+//    let undoAction = UIAlertAction(title: "Undo Filter", style: .destructive) { (action) in
+//        Filters.history.popLast()
+//        self.imageView.image = Filters.history.last
+//        
+//    }
+//    
+//    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//    
+//    if Filters.history.count > 1 {
+//    alertController.addAction(undoAction)
+//    }
+//    
+//    alertController.addAction(cancelAction)
+//    
+//    self.present(alertController, animated: true, completion: nil)
+//    
+//}
+
     @IBAction func userLongPressed(_ sender: UILongPressGestureRecognizer) {
         if(SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter)) {
             guard let composeController = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else { return }
