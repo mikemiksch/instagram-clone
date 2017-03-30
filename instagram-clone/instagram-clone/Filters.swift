@@ -35,14 +35,12 @@ class Filters {
     
     static var history = [originalImage]
     
-    static var ciContext: CIContext {
-        let options = [kCIContextWorkingColorSpace : NSNull()]
-        let eaglContext = EAGLContext(api: .openGLES2)!
-        return CIContext(eaglContext: eaglContext, options: options)
-    }
+    var ciContext : CIContext
     
     private init() {
-        
+        let options = [kCIContextWorkingColorSpace : NSNull()]
+        let eaglContext = EAGLContext(api: .openGLES2)!
+        ciContext = CIContext(eaglContext: eaglContext, options: options)
     }
     
     class func filter(name: FilterName, image: UIImage, completion: @escaping FilterCompletion) {
@@ -58,7 +56,7 @@ class Filters {
             
             guard let outputImage = filter.outputImage else { fatalError("Failed to get output image from filter") }
             
-            if let cgImage = ciContext.createCGImage(outputImage, from: outputImage.extent) {
+            if let cgImage = Filters.shared.ciContext.createCGImage(outputImage, from: outputImage.extent) {
                 
                 let finalImage = UIImage(cgImage: cgImage)
                 history.append(finalImage)

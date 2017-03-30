@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 import Social
 
-class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class HomeViewController: UIViewController, UINavigationControllerDelegate {
 
     let imagePicker = UIImagePickerController()
     
@@ -50,12 +50,12 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
-    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
-        self.imagePicker.delegate = self
-        self.imagePicker.sourceType = sourceType
-        self.imagePicker.allowsEditing = true
-        self.present(self.imagePicker, animated: true, completion: nil)
-    }
+//    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
+//        self.imagePicker.delegate = self
+//        self.imagePicker.sourceType = sourceType
+//        self.imagePicker.allowsEditing = true
+//        self.present(self.imagePicker, animated: true, completion: nil)
+//    }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
@@ -186,13 +186,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 //MARK: UICollectionViewDataSource
 extension HomeViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
-        
         guard let originalImage = Filters.originalImage else { return filterCell }
-        
         guard let resizedImage = originalImage.resize(size: CGSize(width: 150, height: 150)) else { return filterCell }
-        
         let filterName = self.filterNames[indexPath.row]
         
         Filters.filter(name: filterName, image: resizedImage) { (filteredImage) in
@@ -213,5 +209,16 @@ extension HomeViewController : GalleryViewControllerDelegate {
     func galleryController(didSelect image: UIImage) {
         self.imageView.image = image
         self.tabBarController?.selectedIndex = 0
+    }
+}
+
+
+//MARK: UIImagePickerControllerDelegate
+extension HomeViewController : UIImagePickerControllerDelegate {
+    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
+        self.imagePicker.delegate = self
+        self.imagePicker.sourceType = sourceType
+        self.imagePicker.allowsEditing = true
+        self.present(self.imagePicker, animated: true, completion: nil)
     }
 }
