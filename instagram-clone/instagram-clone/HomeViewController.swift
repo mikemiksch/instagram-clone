@@ -50,26 +50,26 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         
     }
     
-//    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
-//        self.imagePicker.delegate = self
-//        self.imagePicker.sourceType = sourceType
-//        self.imagePicker.allowsEditing = true
-//        self.present(self.imagePicker, animated: true, completion: nil)
-//    }
+    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
+        self.imagePicker.delegate = self
+        self.imagePicker.sourceType = sourceType
+        self.imagePicker.allowsEditing = true
+        self.present(self.imagePicker, animated: true, completion: nil)
+    }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-            self.imageView.image = chosenImage
-            Filters.originalImage = chosenImage
-            Filters.history = [chosenImage]
-            self.collectionView.reloadData()
-        }
-        dismiss(animated: true, completion: nil)
-    }
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        if let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+//            self.imageView.image = chosenImage
+//            Filters.originalImage = chosenImage
+//            Filters.history = [chosenImage]
+//            self.collectionView.reloadData()
+//        }
+//        dismiss(animated: true, completion: nil)
+//    }
 
     @IBAction func imageTapped(_ sender: Any) {
         print("User Tapped Image!")
@@ -215,10 +215,13 @@ extension HomeViewController : GalleryViewControllerDelegate {
 
 //MARK: UIImagePickerControllerDelegate
 extension HomeViewController : UIImagePickerControllerDelegate {
-    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
-        self.imagePicker.delegate = self
-        self.imagePicker.sourceType = sourceType
-        self.imagePicker.allowsEditing = true
-        self.present(self.imagePicker, animated: true, completion: nil)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            self.imageView.image = chosenImage
+            Filters.originalImage = chosenImage
+            Filters.history = [chosenImage]
+            self.collectionView.reloadData()
+        }
+        dismiss(animated: true, completion: nil)
     }
 }
