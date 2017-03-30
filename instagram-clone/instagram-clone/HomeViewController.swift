@@ -15,6 +15,8 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     let imagePicker = UIImagePickerController()
     
     let filterNames = [FilterName.vintage, FilterName.blackAndWhite, FilterName.sepia, FilterName.comic, FilterName.blur, FilterName.posterize, FilterName.invert, FilterName.fade]
+    
+    let filterLabelNames = ["Vintage", "B&W", "Sepia", "Comic", "Blur", "Posterize", "Invert", "Fade"]
    
     @IBOutlet weak var imageView: UIImageView!
     
@@ -190,9 +192,11 @@ extension HomeViewController : UICollectionViewDataSource {
         guard let originalImage = Filters.originalImage else { return filterCell }
         guard let resizedImage = originalImage.resize(size: CGSize(width: 150, height: 150)) else { return filterCell }
         let filterName = self.filterNames[indexPath.row]
+        let filterLabelText = self.filterLabelNames[indexPath.row]
         
-        Filters.filter(name: filterName, image: resizedImage) { (filteredImage) in
+        Filters.filter(name: filterName, image: resizedImage, label: filterLabelText) { (filteredImage) in
             filterCell.imageView.image = filteredImage
+            filterCell.filterLabel.text = filterLabelText
         }
         
         return filterCell

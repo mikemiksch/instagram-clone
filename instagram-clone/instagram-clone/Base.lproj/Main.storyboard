@@ -54,7 +54,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aGW-5S-ctb">
                                 <rect key="frame" x="0.0" y="583.5" width="375" height="0.0"/>
-                                <color key="backgroundColor" red="0.079401634633541107" green="0.031358487904071808" blue="0.01842280849814415" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="vlu-sv-4KM"/>
                                 </constraints>
@@ -70,18 +70,26 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rYh-0S-jHK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="116" height="110"/>
-                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rYh-0S-jHK"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hj-Rp-hAn">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="0.079401634633541107" green="0.031358487904071808" blue="0.01842280849814415" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="1Hj-Rp-hAn" secondAttribute="trailing" id="2pY-mA-5XQ"/>
                                             <constraint firstItem="rYh-0S-jHK" firstAttribute="top" secondItem="yp7-My-6pr" secondAttribute="top" id="Bfi-Yz-yT6"/>
                                             <constraint firstItem="rYh-0S-jHK" firstAttribute="leading" secondItem="yp7-My-6pr" secondAttribute="leading" id="Cab-bW-69s"/>
+                                            <constraint firstItem="1Hj-Rp-hAn" firstAttribute="leading" secondItem="yp7-My-6pr" secondAttribute="leading" id="Fg0-kX-DDE"/>
                                             <constraint firstAttribute="bottom" secondItem="rYh-0S-jHK" secondAttribute="bottom" id="P9O-2v-k6J"/>
+                                            <constraint firstAttribute="bottom" secondItem="1Hj-Rp-hAn" secondAttribute="bottom" id="aYl-Nh-wy0"/>
                                             <constraint firstAttribute="trailing" secondItem="rYh-0S-jHK" secondAttribute="trailing" id="sPx-6y-JiC"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="filterLabel" destination="1Hj-Rp-hAn" id="ZQj-fV-9ID"/>
                                             <outlet property="imageView" destination="rYh-0S-jHK" id="4uZ-Lr-rnu"/>
                                         </connections>
                                     </collectionViewCell>

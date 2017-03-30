@@ -10,10 +10,11 @@ import UIKit
 
 class FilterCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var filterLabel: UILabel!
     
     override func prepareForReuse() {
         super.prepareForReuse()
         self.imageView.image = nil
+        self.filterLabel.text = nil
     }
 }
