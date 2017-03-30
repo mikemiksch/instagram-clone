@@ -43,7 +43,7 @@ class Filters {
         ciContext = CIContext(eaglContext: eaglContext, options: options)
     }
     
-    class func filter(name: FilterName, image: UIImage, label: String, completion: @escaping FilterCompletion) {
+    class func filter(name: FilterName, image: UIImage, _ label: String?, completion: @escaping FilterCompletion) {
         OperationQueue().addOperation {
             
             guard let filter = CIFilter(name: name.rawValue) else { fatalError("Failed to create CIFilter") }
@@ -59,7 +59,7 @@ class Filters {
             if let cgImage = Filters.shared.ciContext.createCGImage(outputImage, from: outputImage.extent) {
                 
                 let finalImage = UIImage(cgImage: cgImage)
-                history.append(finalImage)
+//                history.append(finalImage)
                 OperationQueue.main.addOperation {
                     completion(finalImage)
                 }

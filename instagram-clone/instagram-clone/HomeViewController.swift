@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 import Social
 
-class HomeViewController: UIViewController, UINavigationControllerDelegate {
+class HomeViewController: UIViewController {
 
     let imagePicker = UIImagePickerController()
     
@@ -29,16 +29,9 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         Filters.originalImage = self.imageView.image
         setupGalleryDelegate()
-    }
-    
-    func setupGalleryDelegate() {
-        if let tabBarController = self.tabBarController {
-            guard let viewControllers = tabBarController.viewControllers else { return }
-            guard let galleryController = viewControllers[1] as? GalleryViewController else { return }
-            galleryController.delegate = self
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,16 +56,6 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        if let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-//            self.imageView.image = chosenImage
-//            Filters.originalImage = chosenImage
-//            Filters.history = [chosenImage]
-//            self.collectionView.reloadData()
-//        }
-//        dismiss(animated: true, completion: nil)
-//    }
 
     @IBAction func imageTapped(_ sender: Any) {
         print("User Tapped Image!")
@@ -97,9 +80,9 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         
     }
     
+    
+    
     @IBAction func filterButtonPressed(_ sender: Any) {
-       
-        guard let image = self.imageView.image else { return }
         let openHeight : CGFloat = 150
         let closedHeight : CGFloat = 0
         
@@ -170,6 +153,11 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
             self.presentImagePickerWith(sourceType: .photoLibrary)
         }
         
+        let undoAction = UIAlertAction(title: "Undo Filter", style: .destructive) { (action) in
+            Filters.history.popLast()
+            guard let lastImage = Filters.history.last else { return }
+            self.imageView.image = lastImage
+        }
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -178,6 +166,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
         
         actionSheetController.addAction(cameraAction)
         actionSheetController.addAction(photoAction)
+        actionSheetController.addAction(undoAction)
         actionSheetController.addAction(cancelAction)
         
         self.present(actionSheetController, animated: true, completion: nil)
@@ -185,9 +174,19 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     
 }
 
+//MARK: setupGalleryDelegate
+extension HomeViewController : UINavigationControllerDelegate {
+    func setupGalleryDelegate() {
+        if let tabBarController = self.tabBarController {
+            guard let viewControllers = tabBarController.viewControllers else { return }
+            guard let galleryController = viewControllers[1] as? GalleryViewController else { return }
+            galleryController.delegate = self
+        }
+    }
+}
 
 //MARK: UICollectionViewDataSource
-extension HomeViewController : UICollectionViewDataSource {
+extension HomeViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
         guard let originalImage = Filters.originalImage else { return filterCell }
@@ -195,7 +194,7 @@ extension HomeViewController : UICollectionViewDataSource {
         let filterName = self.filterNames[indexPath.row]
         let filterLabelText = self.filterLabelNames[indexPath.row]
         
-        Filters.filter(name: filterName, image: resizedImage, label: filterLabelText) { (filteredImage) in
+        Filters.filter(name: filterName, image: resizedImage, filterLabelText) { (filteredImage) in
             filterCell.imageView.image = filteredImage
             filterCell.filterLabel.text = filterLabelText
         }
@@ -206,6 +205,17 @@ extension HomeViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filterNames.count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedFilter = self.filterNames[indexPath.row]
+        guard let finalImage = self.imageView.image else { return }
+        Filters.filter(name: selectedFilter, image: finalImage, nil) { (filteredImage) in
+            self.imageView.image = filteredImage
+            Filters.history.append(filteredImage)
+
+        }
+    }
+    
 }
 
 
@@ -213,6 +223,7 @@ extension HomeViewController : UICollectionViewDataSource {
 extension HomeViewController : GalleryViewControllerDelegate {
     func galleryController(didSelect image: UIImage) {
         self.imageView.image = image
+        self.collectionViewHeightConstraint.constant = 0
         self.tabBarController?.selectedIndex = 0
     }
 }
