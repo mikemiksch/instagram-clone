@@ -109,11 +109,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         UIView.animate(withDuration: 0.5) { 
             self.view.layoutIfNeeded()
         }
-    }
-    
-//    
-//    guard let image = self.imageView.image else { return }
-//    
 //    let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
 //    
 //    func filterAction(title: String, name: FilterName) {
@@ -150,7 +145,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 //    
 //    self.present(alertController, animated: true, completion: nil)
 //    
-//}
+    }
 
     @IBAction func userLongPressed(_ sender: UILongPressGestureRecognizer) {
         if(SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter)) {
