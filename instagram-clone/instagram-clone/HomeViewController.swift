@@ -29,6 +29,7 @@ class HomeViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.dataSource = self
+        Filters.originalImage = self.imageView.image
         setupGalleryDelegate()
     }
     
