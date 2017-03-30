@@ -8,18 +8,34 @@
 
 import UIKit
 import MobileCoreServices
+import Social
 
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let imagePicker = UIImagePickerController()
     
+    let filterNames = [FilterName.vintage, FilterName.blackAndWhite, FilterName.sepia, FilterName.comic, FilterName.blur, FilterName.posterize, FilterName.invert, FilterName.fade]
+   
     @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     @IBOutlet weak var filterButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var postButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.collectionView.dataSource = self
+        setupGalleryDelegate()
+    }
+    
+    func setupGalleryDelegate() {
+        if let tabBarController = self.tabBarController {
+            guard let viewControllers = tabBarController.viewControllers else { return }
+            guard let galleryController = viewControllers[1] as? GalleryViewController else { return }
+            galleryController.delegate = self
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,6 +66,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             self.imageView.image = chosenImage
             Filters.originalImage = chosenImage
             Filters.history = [chosenImage]
+            self.collectionView.reloadData()
         }
         dismiss(animated: true, completion: nil)
     }
@@ -78,47 +95,30 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func filterButtonPressed(_ sender: Any) {
-        
+       
         guard let image = self.imageView.image else { return }
+        let openHeight : CGFloat = 150
+        let closedHeight : CGFloat = 0
         
-        let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
-        
-        func filterAction(title: String, name: FilterName) {
-            let action = UIAlertAction(title: title, style: .default) { (action) in
-                Filters.filter(name: name, image: image, completion: { (filteredImage) in
-                    self.imageView.image = filteredImage
-                })
-            }
-            alertController.addAction(action)
+        if self.collectionViewHeightConstraint.constant == openHeight {
+            self.collectionViewHeightConstraint.constant = closedHeight
+        } else if self.collectionViewHeightConstraint.constant == closedHeight {
+            self.collectionViewHeightConstraint.constant = openHeight
         }
         
-        let blackAndWhiteAction = filterAction(title: "Black and White", name: .blackAndWhite)
-        let vitnageAction = filterAction(title: "Vintage", name: .vintage)
-        let sepiaAction = filterAction(title: "Sepia", name: .sepia)
-        let comicAction = filterAction(title: "Comic", name: .comic)
-        let blurAction = filterAction(title: "Blur", name: .blur)
-        let posterizeAction = filterAction(title: "Posterize", name: .posterize)
-        let invertAction = filterAction(title: "Invert", name: .invert)
-        let fadeAction = filterAction(title: "Fade", name: .fade)
-        
-        let undoAction = UIAlertAction(title: "Undo Filter", style: .destructive) { (action) in
-            Filters.history.popLast()
-            self.imageView.image = Filters.history.last
-
+        UIView.animate(withDuration: 0.5) { 
+            self.view.layoutIfNeeded()
         }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        if Filters.history.count > 1 {
-            alertController.addAction(undoAction)
-        }
-
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-        
     }
     
+    @IBAction func userLongPressed(_ sender: UILongPressGestureRecognizer) {
+        if(SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter)) {
+            guard let composeController = SLComposeViewController(forServiceType: SLServiceTypeTwitter) else { return }
+            composeController.add(self.imageView.image)
+            self.present(composeController, animated: true, completion: nil)
+        }
+        
+    }
     
     func presentActionSheet() {
         let actionSheetController = UIAlertController(title: "Source", message: "Please select Source Type", preferredStyle: .actionSheet)
@@ -144,4 +144,38 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.present(actionSheetController, animated: true, completion: nil)
     }
     
+}
+
+
+//MARK: UICollectionViewDataSource
+extension HomeViewController : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCell.identifier, for: indexPath) as! FilterCell
+        
+        guard let originalImage = Filters.originalImage else { return filterCell }
+        
+        guard let resizedImage = originalImage.resize(size: CGSize(width: 150, height: 150)) else { return filterCell }
+        
+        let filterName = self.filterNames[indexPath.row]
+        
+        Filters.filter(name: filterName, image: resizedImage) { (filteredImage) in
+            filterCell.imageView.image = filteredImage
+        }
+        
+        return filterCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return filterNames.count
+    }
+}
+
+
+//MARK: GalleryViewControllerDelegate
+extension HomeViewController : GalleryViewControllerDelegate {
+    func galleryController(didSelect image: UIImage) {
+        self.imageView.image = image
+        self.tabBarController?.selectedIndex = 0
+    }
 }

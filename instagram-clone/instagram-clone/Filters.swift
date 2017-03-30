@@ -31,7 +31,7 @@ class Filters {
     
     static let shared = Filters()
     
-    static var originalImage = #imageLiteral(resourceName: "Robot Unicorn")
+    static var originalImage : UIImage?
     
     static var history = [originalImage]
     
