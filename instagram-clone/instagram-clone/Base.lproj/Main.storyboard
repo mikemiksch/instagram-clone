@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Robot Unicorn" translatesAutoresizingMaskIntoConstraints="NO" id="n9G-J3-8Rv">
-                                <rect key="frame" x="47" y="83.5" width="281" height="500"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -32,22 +32,11 @@
                                     <outletCollection property="gestureRecognizers" destination="TJT-VP-AlU" appends="YES" id="yHi-1L-VEO"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghO-2b-Jkn">
-                                <rect key="frame" x="46.5" y="-146.5" width="281" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                <state key="normal" title="POST">
-                                    <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dXh-a9-Da7"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxx-iw-aaX">
-                                <rect key="frame" x="46.5" y="783.5" width="281" height="30"/>
+                                <rect key="frame" x="0.0" y="623" width="376" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                <state key="normal" title="FILTER"/>
+                                <state key="normal" title="FILTERS"/>
                                 <connections>
                                     <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tCy-Bk-x3y"/>
                                 </connections>
@@ -96,22 +85,33 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghO-2b-Jkn">
+                                <rect key="frame" x="288" y="-35" width="71" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="POST">
+                                    <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dXh-a9-Da7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99607473611831665" green="0.99220293760299683" blue="0.99199241399765015" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Hxx-iw-aaX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3vS-UD-edx"/>
-                            <constraint firstItem="n9G-J3-8Rv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="805-cB-cMy"/>
-                            <constraint firstItem="Hxx-iw-aaX" firstAttribute="width" secondItem="n9G-J3-8Rv" secondAttribute="width" id="HVD-zT-V5C"/>
-                            <constraint firstItem="n9G-J3-8Rv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="JPw-5Y-Ld5"/>
+                            <constraint firstItem="n9G-J3-8Rv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" constant="93.75" id="805-cB-cMy"/>
+                            <constraint firstItem="Hxx-iw-aaX" firstAttribute="width" secondItem="n9G-J3-8Rv" secondAttribute="width" constant="1" id="HVD-zT-V5C"/>
+                            <constraint firstItem="n9G-J3-8Rv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" constant="117.75" id="JPw-5Y-Ld5"/>
                             <constraint firstAttribute="trailing" secondItem="aGW-5S-ctb" secondAttribute="trailing" id="RYI-5F-7VV"/>
-                            <constraint firstItem="ghO-2b-Jkn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SqH-87-P2b"/>
-                            <constraint firstItem="aGW-5S-ctb" firstAttribute="bottom" secondItem="n9G-J3-8Rv" secondAttribute="bottom" id="Tw9-wE-dJ5"/>
-                            <constraint firstItem="n9G-J3-8Rv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eUt-PN-Kbz"/>
-                            <constraint firstItem="Hxx-iw-aaX" firstAttribute="top" secondItem="n9G-J3-8Rv" secondAttribute="bottom" constant="200" id="n96-70-SFy"/>
-                            <constraint firstItem="ghO-2b-Jkn" firstAttribute="width" secondItem="n9G-J3-8Rv" secondAttribute="width" id="qjU-Az-HyD"/>
+                            <constraint firstItem="ghO-2b-Jkn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="136" id="SqH-87-P2b"/>
+                            <constraint firstItem="aGW-5S-ctb" firstAttribute="bottom" secondItem="n9G-J3-8Rv" secondAttribute="bottom" constant="-34.5" id="Tw9-wE-dJ5"/>
+                            <constraint firstItem="n9G-J3-8Rv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-24.5" id="eUt-PN-Kbz"/>
+                            <constraint firstItem="Hxx-iw-aaX" firstAttribute="top" secondItem="n9G-J3-8Rv" secondAttribute="bottom" constant="5" id="n96-70-SFy"/>
+                            <constraint firstItem="ghO-2b-Jkn" firstAttribute="width" secondItem="n9G-J3-8Rv" secondAttribute="width" constant="-304" id="qjU-Az-HyD"/>
                             <constraint firstItem="aGW-5S-ctb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tkH-52-Chv"/>
                             <constraint firstItem="n9G-J3-8Rv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xTY-zW-Djy"/>
-                            <constraint firstItem="n9G-J3-8Rv" firstAttribute="top" secondItem="ghO-2b-Jkn" secondAttribute="bottom" constant="200" id="zi3-YN-zKR"/>
+                            <constraint firstItem="n9G-J3-8Rv" firstAttribute="top" secondItem="ghO-2b-Jkn" secondAttribute="bottom" constant="5" id="zi3-YN-zKR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Post" id="qfI-5V-hsl"/>

@@ -33,6 +33,8 @@ class Filters {
     
     static var originalImage : UIImage?
     
+    static var resetImage : UIImage?
+    
     static var history = [originalImage]
     
     var ciContext : CIContext

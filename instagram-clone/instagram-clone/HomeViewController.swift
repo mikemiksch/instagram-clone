@@ -37,9 +37,8 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        filterButtonTopConstraint.constant = 8
-        postButtonBottomConstraint.constant = 8
-        
+        filterButtonTopConstraint.constant = -35
+        postButtonBottomConstraint.constant = -50
         UIView.animate(withDuration: 0.4) {
             self.view.layoutIfNeeded()
         }
@@ -95,6 +94,7 @@ class HomeViewController: UIViewController {
         UIView.animate(withDuration: 0.5) { 
             self.view.layoutIfNeeded()
         }
+
     }
 
     @IBAction func userLongPressed(_ sender: UILongPressGestureRecognizer) {
@@ -124,8 +124,9 @@ class HomeViewController: UIViewController {
         }
         
         let resetAction = UIAlertAction(title: "Reset Image", style: .destructive) { (action) in
-            guard let firstImage = Filters.history.first else { return }
+            let firstImage = Filters.history[0]
             Filters.history.removeAll()
+            Filters.history = [firstImage]
             self.imageView.image = firstImage
         }
         
