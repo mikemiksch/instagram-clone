@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        filterButtonTopConstraint.constant = -35
+        filterButtonTopConstraint.constant = -50
         postButtonBottomConstraint.constant = -50
         UIView.animate(withDuration: 0.4) {
             self.view.layoutIfNeeded()

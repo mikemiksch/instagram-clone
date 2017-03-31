@@ -10,6 +10,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="JosefinSans-BoldItalic.ttf">
+            <string>JosefinSans-BoldItalic</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Post-->
         <scene sceneID="tne-QT-ifu">
@@ -33,16 +38,16 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxx-iw-aaX">
-                                <rect key="frame" x="0.0" y="623" width="376" height="30"/>
+                                <rect key="frame" x="0.0" y="623" width="376" height="29"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="JosefinSans-BoldItalic" family="Josefin Sans" pointSize="17"/>
                                 <state key="normal" title="FILTERS"/>
                                 <connections>
                                     <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tCy-Bk-x3y"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aGW-5S-ctb">
-                                <rect key="frame" x="0.0" y="583.5" width="375" height="0.0"/>
+                                <rect key="frame" x="0.0" y="568.5" width="375" height="0.0"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="vlu-sv-4KM"/>
@@ -62,7 +67,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rYh-0S-jHK"/>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hj-Rp-hAn">
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="JosefinSans-BoldItalic" family="Josefin Sans" pointSize="17"/>
                                                     <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <color key="shadowColor" red="0.079401634633541107" green="0.031358487904071808" blue="0.01842280849814415" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -86,9 +91,9 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghO-2b-Jkn">
-                                <rect key="frame" x="288" y="-35" width="71" height="30"/>
+                                <rect key="frame" x="288" y="-34" width="71" height="29"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="JosefinSans-BoldItalic" family="Josefin Sans" pointSize="17"/>
                                 <state key="normal" title="POST">
                                     <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -105,7 +110,7 @@
                             <constraint firstItem="n9G-J3-8Rv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" constant="117.75" id="JPw-5Y-Ld5"/>
                             <constraint firstAttribute="trailing" secondItem="aGW-5S-ctb" secondAttribute="trailing" id="RYI-5F-7VV"/>
                             <constraint firstItem="ghO-2b-Jkn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="136" id="SqH-87-P2b"/>
-                            <constraint firstItem="aGW-5S-ctb" firstAttribute="bottom" secondItem="n9G-J3-8Rv" secondAttribute="bottom" constant="-34.5" id="Tw9-wE-dJ5"/>
+                            <constraint firstItem="aGW-5S-ctb" firstAttribute="bottom" secondItem="n9G-J3-8Rv" secondAttribute="bottom" constant="-49.5" id="Tw9-wE-dJ5"/>
                             <constraint firstItem="n9G-J3-8Rv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-24.5" id="eUt-PN-Kbz"/>
                             <constraint firstItem="Hxx-iw-aaX" firstAttribute="top" secondItem="n9G-J3-8Rv" secondAttribute="bottom" constant="5" id="n96-70-SFy"/>
                             <constraint firstItem="ghO-2b-Jkn" firstAttribute="width" secondItem="n9G-J3-8Rv" secondAttribute="width" constant="-304" id="qjU-Az-HyD"/>
