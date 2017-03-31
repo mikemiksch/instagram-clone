@@ -59,7 +59,6 @@ class Filters {
             if let cgImage = Filters.shared.ciContext.createCGImage(outputImage, from: outputImage.extent) {
                 
                 let finalImage = UIImage(cgImage: cgImage)
-//                history.append(finalImage)
                 OperationQueue.main.addOperation {
                     completion(finalImage)
                 }

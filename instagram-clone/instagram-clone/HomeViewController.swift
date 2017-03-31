@@ -95,42 +95,6 @@ class HomeViewController: UIViewController {
         UIView.animate(withDuration: 0.5) { 
             self.view.layoutIfNeeded()
         }
-//    let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
-//    
-//    func filterAction(title: String, name: FilterName) {
-//        let action = UIAlertAction(title: title, style: .default) { (action) in
-//            Filters.filter(name: name, image: image, completion: { (filteredImage) in
-//                self.imageView.image = filteredImage
-//            })
-//        }
-//        alertController.addAction(action)
-//    }
-//    
-//    let blackAndWhiteAction = filterAction(title: "Black and White", name: .blackAndWhite)
-//    let vitnageAction = filterAction(title: "Vintage", name: .vintage)
-//    let sepiaAction = filterAction(title: "Sepia", name: .sepia)
-//    let comicAction = filterAction(title: "Comic", name: .comic)
-//    let blurAction = filterAction(title: "Blur", name: .blur)
-//    let posterizeAction = filterAction(title: "Posterize", name: .posterize)
-//    let invertAction = filterAction(title: "Invert", name: .invert)
-//    let fadeAction = filterAction(title: "Fade", name: .fade)
-//    
-//    let undoAction = UIAlertAction(title: "Undo Filter", style: .destructive) { (action) in
-//        Filters.history.popLast()
-//        self.imageView.image = Filters.history.last
-//        
-//    }
-//    
-//    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//    
-//    if Filters.history.count > 1 {
-//    alertController.addAction(undoAction)
-//    }
-//    
-//    alertController.addAction(cancelAction)
-//    
-//    self.present(alertController, animated: true, completion: nil)
-//    
     }
 
     @IBAction func userLongPressed(_ sender: UILongPressGestureRecognizer) {
@@ -158,6 +122,13 @@ class HomeViewController: UIViewController {
             guard let lastImage = Filters.history.last else { return }
             self.imageView.image = lastImage
         }
+        
+        let resetAction = UIAlertAction(title: "Reset Image", style: .destructive) { (action) in
+            guard let firstImage = Filters.history.first else { return }
+            Filters.history.removeAll()
+            self.imageView.image = firstImage
+        }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -166,7 +137,10 @@ class HomeViewController: UIViewController {
         
         actionSheetController.addAction(cameraAction)
         actionSheetController.addAction(photoAction)
-        actionSheetController.addAction(undoAction)
+        if Filters.history.count > 1 {
+            actionSheetController.addAction(undoAction)
+            actionSheetController.addAction(resetAction)
+        }
         actionSheetController.addAction(cancelAction)
         
         self.present(actionSheetController, animated: true, completion: nil)
@@ -235,8 +209,8 @@ extension HomeViewController : UIImagePickerControllerDelegate {
         if let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.imageView.image = chosenImage
             Filters.originalImage = chosenImage
-            Filters.history = [chosenImage]
             self.collectionView.reloadData()
+            Filters.history = [chosenImage]
         }
         dismiss(animated: true, completion: nil)
     }
