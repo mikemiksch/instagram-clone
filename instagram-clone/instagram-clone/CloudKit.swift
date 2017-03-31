@@ -49,7 +49,7 @@ class CloudKit {
     
     func getPosts(completion: @escaping PostsCompletion) {
         let postQuery = CKQuery(recordType: "Post", predicate: NSPredicate(value: true))
-        
+        postQuery.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
         self.privateDatabase.perform(postQuery, inZoneWith: nil) { (records, error) in
             if error != nil {
                 OperationQueue.main.addOperation {
