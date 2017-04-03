@@ -7,21 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8319BA9E1E898041005016A2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8319BA9D1E898041005016A2 /* CloudKit.framework */; };
+		838648C51E8C236D002FB229 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838648C41E8C236D002FB229 /* GalleryViewController.swift */; };
+		838648C71E8C2770002FB229 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838648C61E8C2770002FB229 /* GalleryCell.swift */; };
+		838648C91E8C3799002FB229 /* GalleryCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838648C81E8C3799002FB229 /* GalleryCollectionViewLayout.swift */; };
+		838648CB1E8D757E002FB229 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838648CA1E8D757E002FB229 /* FilterCell.swift */; };
+		839D80851E8AD0E80003E635 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D80841E8AD0E80003E635 /* Post.swift */; };
+		839D80871E8AD3630003E635 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D80861E8AD3630003E635 /* UIExtensions.swift */; };
+		839D80891E8AE7150003E635 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D80881E8AE7150003E635 /* Filters.swift */; };
+		83A050001E8984DF00D42A32 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A04FFF1E8984DF00D42A32 /* CloudKit.swift */; };
+		83A050021E898D3C00D42A32 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A050011E898D3C00D42A32 /* HomeViewController.swift */; };
 		83E61BEB1E8970040099A8D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E61BEA1E8970040099A8D3 /* AppDelegate.swift */; };
-		83E61BED1E8970040099A8D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E61BEC1E8970040099A8D3 /* ViewController.swift */; };
 		83E61BF01E8970040099A8D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E61BEE1E8970040099A8D3 /* Main.storyboard */; };
 		83E61BF21E8970040099A8D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83E61BF11E8970040099A8D3 /* Assets.xcassets */; };
 		83E61BF51E8970040099A8D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E61BF31E8970040099A8D3 /* LaunchScreen.storyboard */; };
+		83E7F1461E92E8BE0099D6F3 /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E7F13C1E92E8BE0099D6F3 /* JosefinSans-Bold.ttf */; };
+		83E7F1471E92E8BE0099D6F3 /* JosefinSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E7F13D1E92E8BE0099D6F3 /* JosefinSans-BoldItalic.ttf */; };
+		83E7F1481E92E8BE0099D6F3 /* JosefinSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E7F13E1E92E8BE0099D6F3 /* JosefinSans-Italic.ttf */; };
+		83E7F1491E92E8BE0099D6F3 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E7F13F1E92E8BE0099D6F3 /* JosefinSans-Light.ttf */; };
+		83E7F14A1E92E8BE0099D6F3 /* JosefinSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E7F1401E92E8BE0099D6F3 /* JosefinSans-LightItalic.ttf */; };
+		83E7F14B1E92E8BE0099D6F3 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E7F1411E92E8BE0099D6F3 /* JosefinSans-Regular.ttf */; };
+		83E7F14C1E92E8BE0099D6F3 /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E7F1421E92E8BE0099D6F3 /* JosefinSans-SemiBold.ttf */; };
+		83E7F14D1E92E8BE0099D6F3 /* JosefinSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E7F1431E92E8BE0099D6F3 /* JosefinSans-SemiBoldItalic.ttf */; };
+		83E7F14E1E92E8BE0099D6F3 /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E7F1441E92E8BE0099D6F3 /* JosefinSans-Thin.ttf */; };
+		83E7F14F1E92E8BE0099D6F3 /* JosefinSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83E7F1451E92E8BE0099D6F3 /* JosefinSans-ThinItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8319BA9B1E898023005016A2 /* instagram-clone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "instagram-clone.entitlements"; sourceTree = "<group>"; };
+		8319BA9D1E898041005016A2 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		838648C41E8C236D002FB229 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		838648C61E8C2770002FB229 /* GalleryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
+		838648C81E8C3799002FB229 /* GalleryCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewLayout.swift; sourceTree = "<group>"; };
+		838648CA1E8D757E002FB229 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		839D80841E8AD0E80003E635 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		839D80861E8AD3630003E635 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		839D80881E8AE7150003E635 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		83A04FFF1E8984DF00D42A32 /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
+		83A050011E898D3C00D42A32 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		83E61BE71E8970040099A8D3 /* instagram-clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "instagram-clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83E61BEA1E8970040099A8D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		83E61BEC1E8970040099A8D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		83E61BEF1E8970040099A8D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		83E61BF11E8970040099A8D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83E61BF41E8970040099A8D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83E61BF61E8970040099A8D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83E7F13C1E92E8BE0099D6F3 /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JosefinSans-Bold.ttf"; path = "Assets.xcassets/josefin-sans/JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
+		83E7F13D1E92E8BE0099D6F3 /* JosefinSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JosefinSans-BoldItalic.ttf"; path = "Assets.xcassets/josefin-sans/JosefinSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		83E7F13E1E92E8BE0099D6F3 /* JosefinSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JosefinSans-Italic.ttf"; path = "Assets.xcassets/josefin-sans/JosefinSans-Italic.ttf"; sourceTree = "<group>"; };
+		83E7F13F1E92E8BE0099D6F3 /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JosefinSans-Light.ttf"; path = "Assets.xcassets/josefin-sans/JosefinSans-Light.ttf"; sourceTree = "<group>"; };
+		83E7F1401E92E8BE0099D6F3 /* JosefinSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JosefinSans-LightItalic.ttf"; path = "Assets.xcassets/josefin-sans/JosefinSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		83E7F1411E92E8BE0099D6F3 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JosefinSans-Regular.ttf"; path = "Assets.xcassets/josefin-sans/JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
+		83E7F1421E92E8BE0099D6F3 /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JosefinSans-SemiBold.ttf"; path = "Assets.xcassets/josefin-sans/JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		83E7F1431E92E8BE0099D6F3 /* JosefinSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JosefinSans-SemiBoldItalic.ttf"; path = "Assets.xcassets/josefin-sans/JosefinSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		83E7F1441E92E8BE0099D6F3 /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JosefinSans-Thin.ttf"; path = "Assets.xcassets/josefin-sans/JosefinSans-Thin.ttf"; sourceTree = "<group>"; };
+		83E7F1451E92E8BE0099D6F3 /* JosefinSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "JosefinSans-ThinItalic.ttf"; path = "Assets.xcassets/josefin-sans/JosefinSans-ThinItalic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +68,80 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8319BA9E1E898041005016A2 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8319BA9C1E898041005016A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8319BA9D1E898041005016A2 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83A04FFB1E8981F600D42A32 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				839D80841E8AD0E80003E635 /* Post.swift */,
+				839D80861E8AD3630003E635 /* UIExtensions.swift */,
+				839D80881E8AE7150003E635 /* Filters.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		83A04FFC1E89820000D42A32 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				838648CA1E8D757E002FB229 /* FilterCell.swift */,
+				838648C61E8C2770002FB229 /* GalleryCell.swift */,
+				83E61BEE1E8970040099A8D3 /* Main.storyboard */,
+				83E61BF31E8970040099A8D3 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		83A04FFD1E89820900D42A32 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				838648C81E8C3799002FB229 /* GalleryCollectionViewLayout.swift */,
+				83E61BEA1E8970040099A8D3 /* AppDelegate.swift */,
+				83A04FFF1E8984DF00D42A32 /* CloudKit.swift */,
+				83A050011E898D3C00D42A32 /* HomeViewController.swift */,
+				838648C41E8C236D002FB229 /* GalleryViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		83A04FFE1E89822500D42A32 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				83E61BF11E8970040099A8D3 /* Assets.xcassets */,
+				83E7F13C1E92E8BE0099D6F3 /* JosefinSans-Bold.ttf */,
+				83E7F13D1E92E8BE0099D6F3 /* JosefinSans-BoldItalic.ttf */,
+				83E7F13E1E92E8BE0099D6F3 /* JosefinSans-Italic.ttf */,
+				83E7F13F1E92E8BE0099D6F3 /* JosefinSans-Light.ttf */,
+				83E7F1401E92E8BE0099D6F3 /* JosefinSans-LightItalic.ttf */,
+				83E7F1411E92E8BE0099D6F3 /* JosefinSans-Regular.ttf */,
+				83E7F1421E92E8BE0099D6F3 /* JosefinSans-SemiBold.ttf */,
+				83E7F1431E92E8BE0099D6F3 /* JosefinSans-SemiBoldItalic.ttf */,
+				83E7F1441E92E8BE0099D6F3 /* JosefinSans-Thin.ttf */,
+				83E7F1451E92E8BE0099D6F3 /* JosefinSans-ThinItalic.ttf */,
+				83E61BF61E8970040099A8D3 /* Info.plist */,
+				8319BA9B1E898023005016A2 /* instagram-clone.entitlements */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		83E61BDE1E8970040099A8D3 = {
 			isa = PBXGroup;
 			children = (
 				83E61BE91E8970040099A8D3 /* instagram-clone */,
 				83E61BE81E8970040099A8D3 /* Products */,
+				8319BA9C1E898041005016A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,12 +156,10 @@
 		83E61BE91E8970040099A8D3 /* instagram-clone */ = {
 			isa = PBXGroup;
 			children = (
-				83E61BEA1E8970040099A8D3 /* AppDelegate.swift */,
-				83E61BEC1E8970040099A8D3 /* ViewController.swift */,
-				83E61BEE1E8970040099A8D3 /* Main.storyboard */,
-				83E61BF11E8970040099A8D3 /* Assets.xcassets */,
-				83E61BF31E8970040099A8D3 /* LaunchScreen.storyboard */,
-				83E61BF61E8970040099A8D3 /* Info.plist */,
+				83A04FFB1E8981F600D42A32 /* Model */,
+				83A04FFC1E89820000D42A32 /* View */,
+				83A04FFD1E89820900D42A32 /* Controller */,
+				83A04FFE1E89822500D42A32 /* Support */,
 			);
 			path = "instagram-clone";
 			sourceTree = "<group>";
@@ -96,8 +196,16 @@
 				TargetAttributes = {
 					83E61BE61E8970040099A8D3 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = NM45JY8S5A;
+						DevelopmentTeam = HDU39LZWX7;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -125,8 +233,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				83E61BF51E8970040099A8D3 /* LaunchScreen.storyboard in Resources */,
+				83E7F14A1E92E8BE0099D6F3 /* JosefinSans-LightItalic.ttf in Resources */,
+				83E7F14C1E92E8BE0099D6F3 /* JosefinSans-SemiBold.ttf in Resources */,
+				83E7F14D1E92E8BE0099D6F3 /* JosefinSans-SemiBoldItalic.ttf in Resources */,
 				83E61BF21E8970040099A8D3 /* Assets.xcassets in Resources */,
+				83E7F14F1E92E8BE0099D6F3 /* JosefinSans-ThinItalic.ttf in Resources */,
+				83E7F1471E92E8BE0099D6F3 /* JosefinSans-BoldItalic.ttf in Resources */,
+				83E7F1481E92E8BE0099D6F3 /* JosefinSans-Italic.ttf in Resources */,
 				83E61BF01E8970040099A8D3 /* Main.storyboard in Resources */,
+				83E7F14E1E92E8BE0099D6F3 /* JosefinSans-Thin.ttf in Resources */,
+				83E7F1461E92E8BE0099D6F3 /* JosefinSans-Bold.ttf in Resources */,
+				83E7F1491E92E8BE0099D6F3 /* JosefinSans-Light.ttf in Resources */,
+				83E7F14B1E92E8BE0099D6F3 /* JosefinSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +255,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83E61BED1E8970040099A8D3 /* ViewController.swift in Sources */,
+				83A050001E8984DF00D42A32 /* CloudKit.swift in Sources */,
+				838648C51E8C236D002FB229 /* GalleryViewController.swift in Sources */,
 				83E61BEB1E8970040099A8D3 /* AppDelegate.swift in Sources */,
+				838648C91E8C3799002FB229 /* GalleryCollectionViewLayout.swift in Sources */,
+				83A050021E898D3C00D42A32 /* HomeViewController.swift in Sources */,
+				838648C71E8C2770002FB229 /* GalleryCell.swift in Sources */,
+				839D80891E8AE7150003E635 /* Filters.swift in Sources */,
+				839D80871E8AD3630003E635 /* UIExtensions.swift in Sources */,
+				839D80851E8AD0E80003E635 /* Post.swift in Sources */,
+				838648CB1E8D757E002FB229 /* FilterCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,10 +385,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NM45JY8S5A;
+				CODE_SIGN_ENTITLEMENTS = "instagram-clone/instagram-clone.entitlements";
+				DEVELOPMENT_TEAM = HDU39LZWX7;
 				INFOPLIST_FILE = "instagram-clone/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mikemiksch.instagram-clone";
+				PRODUCT_BUNDLE_IDENTIFIER = "instagram-clone.com.mikemiksch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -272,10 +399,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NM45JY8S5A;
+				CODE_SIGN_ENTITLEMENTS = "instagram-clone/instagram-clone.entitlements";
+				DEVELOPMENT_TEAM = HDU39LZWX7;
 				INFOPLIST_FILE = "instagram-clone/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mikemiksch.instagram-clone";
+				PRODUCT_BUNDLE_IDENTIFIER = "instagram-clone.com.mikemiksch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -300,6 +428,7 @@
 				83E61BFB1E8970040099A8D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
